@@ -15,6 +15,12 @@ android {
         versionName = libs.versions.app.versionName.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags
+            }
+        }
     }
 
     buildTypes {
@@ -34,6 +40,14 @@ android {
 
     buildFeatures {
         viewBinding = true
+    }
+
+    externalNativeBuild {
+        cmake {
+            val cmakeFile = project.layout.projectDirectory.file("CMakeLists.txt").asFile
+            println("path: " + cmakeFile)
+            path = cmakeFile
+        }
     }
 }
 

@@ -1,12 +1,21 @@
 package com.test.app
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.test.androidtemplate.R
+import androidx.appcompat.app.AppCompatActivity
+import com.test.androidtemplate.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.testText.setOnClickListener {
+            binding.testText.text = NativeMain().stringFromJNI()
+        }
     }
 }
