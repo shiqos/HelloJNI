@@ -24,7 +24,7 @@ gradleEnterprise {
 }
 
 // TODO: Project
-rootProject.name = "AndroidTemplate"
+rootProject.name = "HelloJNI"
 
 include(":app")
 include(":framework")
